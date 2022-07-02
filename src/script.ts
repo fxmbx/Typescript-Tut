@@ -24,6 +24,6 @@ const anchor: HTMLAnchorElement = document.querySelector("a")!;
 
 console.log(anchor.href);
 
-// const form = document.querySelector(".new-item-form") as HTMLFormElement; //typecasting
+const form = document.querySelector(".new-item-form") as HTMLFormElement; //typecasting
 
 console.log(form.children);

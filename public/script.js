@@ -15,5 +15,5 @@ const logDetails = (user) => {
 logDetails({ name: "paul", uid: "2030121" });
 const anchor = document.querySelector("a");
 console.log(anchor.href);
-// const form = document.querySelector(".new-item-form") as HTMLFormElement; //typecasting
+const form = document.querySelector(".new-item-form"); //typecasting
 console.log(form.children);

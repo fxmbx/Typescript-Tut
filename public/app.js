@@ -1,38 +1,22 @@
 import { Invoice } from "./classes/invoice.js";
-var me = {
-    name: "shawn",
-    age: 34,
-    speak(text) {
-        console.log(text);
-    },
-    spend(amount) {
-        console.log("I spent: ", amount);
-        return amount;
-    },
-};
-me.speak("I am a d&d fan");
-me.spend(9000);
-console.log(me);
-const greetPerson = (person) => {
-    console.log("hello", person.name);
-};
-greetPerson(me);
-let invoices = [];
-const invoice1 = new Invoice("John", "Macbook 2020", 1500);
-const invoice2 = new Invoice("Skepta", "MBenz", 25000);
-const invoice3 = new Invoice("Wizkid", "Apple watch", 500);
-invoices.push(invoice1);
-invoices.push(invoice2);
-invoices.push(invoice3);
-invoices.forEach((inv) => {
-    console.log(inv.amount, inv.format());
-});
+import { ListTemplate } from "./classes/ListTemplate.js";
+import { Payment } from "./classes/Payment.js";
 const form = document.querySelector(".new-item-form"); //typecasting
 const type = document.querySelector("#type");
 const tofrom = document.querySelector("#tofrom");
 const details = document.querySelector("#details");
 const amount = document.querySelector("#amount");
+//list template instace
+const ul = document.querySelector("ul");
+const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(type.value, tofrom.value, details.value, amount.value);
+    let doc;
+    if (type.value === "invoice") {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    list.render(doc, type.value, "end");
 });
