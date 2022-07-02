@@ -1,16 +1,14 @@
-"use strict";
-class Invoice {
-    constructor(c, d, a) {
-        this.client = c;
-        this.amount = a;
-        this.details = d;
-    }
-    format() {
-        return `${this.client} owes $${this.amount} for ${this.details}`;
-    }
-}
+import { Invoice } from "./classes/invoice.js";
+let invoices = [];
 const invoice1 = new Invoice("John", "Macbook 2020", 1500);
-console.log(invoice1.format());
+const invoice2 = new Invoice("Skepta", "MBenz", 25000);
+const invoice3 = new Invoice("Wizkid", "Apple watch", 500);
+invoices.push(invoice1);
+invoices.push(invoice2);
+invoices.push(invoice3);
+invoices.forEach((inv) => {
+    console.log(inv.amount, inv.format());
+});
 const form = document.querySelector(".new-item-form"); //typecasting
 const type = document.querySelector("#type");
 const tofrom = document.querySelector("#tofrom");
