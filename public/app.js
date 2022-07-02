@@ -20,3 +20,24 @@ form.addEventListener("submit", (e) => {
     }
     list.render(doc, type.value, "end");
 });
+//GENERICS
+// const addUID = <T extends object>(obj: T) => {
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 1000);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docOne = addUID({ name: "yoshi", age: 90 });
+// let docTwo = addUID("jello");
+// console.log(docTwo);
+console.log(docOne);
+const docThree = {
+    uid: 1,
+    resourcesName: "person",
+    data: { message: "data string" },
+};
+const docFour = {
+    uid: 1,
+    resourcesName: "person",
+    data: ["he", "hello"],
+};
+console.log(docThree, docFour);
