@@ -20,24 +20,33 @@ form.addEventListener("submit", (e) => {
     }
     list.render(doc, type.value, "end");
 });
+//TUPLES - specify the type that is expected in position of array using tuple
+let tup = ["Jhus", true, 450];
+//ENUMS
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 1] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 2] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 3] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 4] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 5] = "PERSON";
+})(ResourceType || (ResourceType = {}));
 //GENERICS
-// const addUID = <T extends object>(obj: T) => {
+// const addUID = <T extends { name: string }>(obj: T) => {
 const addUID = (obj) => {
     let uid = Math.floor(Math.random() * 1000);
     return Object.assign(Object.assign({}, obj), { uid });
 };
 let docOne = addUID({ name: "yoshi", age: 90 });
-// let docTwo = addUID("jello");
-// console.log(docTwo);
 console.log(docOne);
 const docThree = {
     uid: 1,
-    resourcesName: "person",
+    resourcesName: ResourceType.BOOK,
     data: { message: "data string" },
 };
 const docFour = {
     uid: 1,
-    resourcesName: "person",
+    resourcesName: ResourceType.FILM,
     data: ["he", "hello"],
 };
 console.log(docThree, docFour);
