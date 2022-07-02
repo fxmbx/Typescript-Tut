@@ -1,10 +1,20 @@
-var character = "paul";
-var age = 30;
-var isValid = false;
-// character = 30 error type number cant be assigned to string
-character = "sanwo";
-console.log(character);
-var circ = function (diameter) {
-    return diameter * Math.PI;
+var names;
+names = ["jed", "tunde", "israel"];
+// names.push(1)
+names.push("Janet");
+var arry = [];
+arry.push(9);
+arry.push("hello");
+console.log(arry);
+var obj = {
+    name: "obj-name",
+    age: 20,
+    occupation: "jobless"
 };
-console.log(circ(10));
+console.log(obj);
+var age = 25;
+age = true;
+console.log(age);
+var confused;
+confused = { name: 1, age: "25" };
+console.log(confused);

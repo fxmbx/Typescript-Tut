@@ -1,13 +1,26 @@
-let character = "paul";
-let age = 30;
-let isValid = false;
+let names: string[];
 
-// character = 30 error type number cant be assigned to string
-character = "sanwo";
-console.log(character);
+names = ["jed", "tunde", "israel"];
+// names.push(1)
+names.push("Janet");
 
-const circ = (diameter: number) => {
-  return diameter * Math.PI;
+let arry: (string | number)[] = [];
+arry.push(9);
+arry.push("hello");
+console.log(arry);
+
+let obj: object = {
+  name: "obj-name",
+  age: 20,
+  occupation: "jobless",
 };
+console.log(obj);
 
-console.log(circ(10));
+let age: any = 25;
+age = true;
+console.log(age);
+
+let confused: { name: any; age: any };
+
+confused = { name: 1, age: "25" };
+console.log(confused);
